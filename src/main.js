@@ -36,3 +36,4 @@ var vm = new Vue({
   render: c => c(app),
   router // 1.4 挂载路由对象到 VM 实例上
 })
+//
