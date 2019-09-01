@@ -18,7 +18,8 @@
 
     </div>
 
-    <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button>
+    <!-- <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button> -->
+      <mt-button type="danger" size="large" plain>加载更多</mt-button>
   </div>
 </template>
 
@@ -28,32 +29,53 @@ export default {
   data() {
     return {
       pageIndex: 1, // 默认展示第一页数据
-      comments: [] // 所有的评论数据
+      comments: [
+        {
+          add_time:"2019-03-17T03:17:01.000Z",
+          user_name: "Celia",
+          content: "也许放弃 才能靠近心"
+        },
+         {
+          add_time:"2019-03-17T03:17:00.000Z",
+          user_name: "Celia",
+          content: "也许放弃 才能靠近心"
+        },
+         {
+          add_time:"2019-03-17T03:17:03.000Z",
+          user_name: "Celia",
+          content: "也许放弃 才能靠近心"
+        },
+         {
+          add_time:"2019-03-17T03:17:04.000Z",
+          user_name: "Celia",
+          content: "也许放弃 才能靠近心"
+        }
+      ] // 所有的评论数据
     };
   },
   created() {
-    this.getComments();
+    // this.getComments();
   },
   methods: {
-    getComments() {
-      // 获取评论
-      this.$http
-        .get("api/getcomments/" + this.id + "?pageindex=" + this.pageIndex)
-        .then(result => {
-          if (result.body.status === 0) {
-            // this.comments = result.body.message;
-            // 每当获取新评论数据的时候，不要把老数据清空覆盖，而是应该以老数据，拼接上新数据
-            this.comments = this.comments.concat(result.body.message);
-          } else {
-            Toast("获取评论失败！");
-          }
-        });
-    },
-    getMore() {
-      // 加载更多
-      this.pageIndex++;
-      this.getComments();
-    }
+    // getComments() {
+    //   // 获取评论
+    //   this.$http
+    //     .get("api/getcomments/" + this.id + "?pageindex=" + this.pageIndex)
+    //     .then(result => {
+    //       if (result.body.status === 0) {
+    //         // this.comments = result.body.message;
+    //         // 每当获取新评论数据的时候，不要把老数据清空覆盖，而是应该以老数据，拼接上新数据
+    //         this.comments = this.comments.concat(result.body.message);
+    //       } else {
+    //         Toast("获取评论失败！");
+    //       }
+    //     });
+    // },
+    // getMore() {
+    //   // 加载更多
+    //   this.pageIndex++;
+    //   this.getComments();
+    // }
   },
   props: ["id"]
 };

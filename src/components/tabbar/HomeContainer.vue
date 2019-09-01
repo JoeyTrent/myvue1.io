@@ -2,19 +2,19 @@
   <div>
 
     <!-- 轮播图区域 -->
-    <!-- <mt-swipe :auto="4000">
+    <mt-swipe :auto="4000">
      
       <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
-        <img :src="item.img" alt="">
+        <img :src="item.img_url" alt="">
       </mt-swipe-item>
-    </mt-swipe> -->
+    </mt-swipe>
 
     
-  <mt-swipe :auto="4000">
+  <!-- <mt-swipe :auto="4000">
      <mt-swipe-item>1</mt-swipe-item>
      <mt-swipe-item>2</mt-swipe-item>
      <mt-swipe-item>3</mt-swipe-item>
-  </mt-swipe>
+  </mt-swipe> -->
 
 
 
@@ -42,7 +42,7 @@
 
     <!-- 九宫格 到 6宫格 的改造工程 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to = "/home/newlist">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to = "/home/newslist">
               <img src="../../images/menu1.png" alt="">
               <div class="mui-media-body">新闻资讯</div></router-link></li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
@@ -75,22 +75,22 @@ export default {
     };
   },
   created() {
-    // this.getLunbotu();
+    this.getLunbotu();
   },
   methods: {
-    // getLunbotu() {
-    //   // 获取轮播图数据的方法
-    //   this.$http.get("http://vue.studyit.io/api/getlunbo").then(result => {
-    //     // console.log(result.body);
-    //     if (result.body.status === 0) {
-    //       // 成功了
-    //       this.lunbotuList = result.body.message;
-    //     } else {
-    //       // 失败的
-    //       Toast("加载轮播图失败。。。");
-    //     }
-    //   });
-    // }
+    getLunbotu() {
+      // 获取轮播图数据的方法
+      this.$http.get("/src/api/lunbo.json").then(result => {
+        console.log(result.body);
+        if (result.body.status === 0) {
+          // 成功了
+          this.lunbotuList = result.body.message;
+        } else {
+          // 失败的
+          Toast("加载轮播图失败。。。");
+        }
+      });
+    }
   }
 };
 </script>

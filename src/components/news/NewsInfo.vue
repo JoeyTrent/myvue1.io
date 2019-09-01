@@ -1,6 +1,7 @@
 <template>
   <div class="newsinfo-container">
     <!-- 大标题 -->
+    
     <h3 class="title">{{ newsinfo.title }}</h3>
     <!-- 子标题 -->
     <p class="subtitle">
@@ -14,7 +15,8 @@
     <div class="content" v-html="newsinfo.content"></div>
 
     <!-- 评论子组件区域 -->
-    <comment-box :id="this.id"></comment-box>
+    <!-- <comment-box :id="this.id"></comment-box> -->
+     <comment-box :id="this.id"></comment-box>
   </div>
 </template>
 
@@ -35,9 +37,21 @@ export default {
   methods: {
     getNewsInfo() {
       // 获取新闻详情
-      this.$http.get("api/getnew/" + this.id).then(result => {
+      // this.$http.get("api/getnew/" + this.id).then(result => {
+      this.$http.get("/src/api/news.json" ).then(result => {
+        console.log(this.newsinfo)
+        console.log(this.id)
+        var that =this
         if (result.body.status === 0) {
-          this.newsinfo = result.body.message[0];
+          var news = result.body.message;
+          // console.log(news)
+         
+         this.newsinfo =  news.find(function(item) {
+            return item.id ==  that.id
+          }) 
+          
+        //this.newsinfo = result.body.messages[0]
+
         } else {
           Toast("获取新闻失败！");
         }
@@ -58,7 +72,7 @@ export default {
     font-size: 16px;
     text-align: center;
     margin: 15px 0;
-    color: red;
+    color: purple;
   }
   .subtitle {
     font-size: 13px;
