@@ -16,7 +16,7 @@
 
     <!-- 评论子组件区域 -->
     <!-- <comment-box :id="this.id"></comment-box> -->
-     <comment-box :id="this.id"></comment-box>
+     <comment-box :id="id"></comment-box>
   </div>
 </template>
 
@@ -39,17 +39,21 @@ export default {
       // 获取新闻详情
       // this.$http.get("api/getnew/" + this.id).then(result => {
       this.$http.get("/src/api/news.json" ).then(result => {
-        console.log(this.newsinfo)
-        console.log(this.id)
-        var that =this
+        //console.log(this.newsinfo)
+        //console.log(this.id)
+        //var that =this
         if (result.body.status === 0) {
           var news = result.body.message;
           // console.log(news)
          
-         this.newsinfo =  news.find(function(item) {
-            return item.id ==  that.id
+        //  this.newsinfo =  news.find(function(item) {
+        //     return item.id ==  that.id
+        //   }) 
+        // 箭头函数 by me
+        this.newsinfo =  news.find((item) => {
+            return item.id ==  this.id
           }) 
-          
+
         //this.newsinfo = result.body.messages[0]
 
         } else {
