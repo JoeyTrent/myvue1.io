@@ -5,6 +5,45 @@ import VueRouter from 'vue-router'
 // 1.2 安装路由
 Vue.use(VueRouter)
 
+//导入vuex
+//从localstorerag获取car 
+var car = JSON.parse(localStorage.getItem('car'||'[]'))
+
+import Vuex from 'vuex'
+Vue.use(Vuex)
+var store = new Vuex.Store({
+  state: {
+    car: car, //购物车商品数据
+  },
+  mutations: {
+      addToCar(state,goodsinfo){
+          //1 已有商品 更新数量
+          //2 没有 直接加入数据
+          var flag = false
+          state.car.some(item => {
+            if(item.id == goodsinfo.id){
+              item.count += parseInt(goodsinfo.count)
+              flag = true
+              return true
+            }
+          })
+          if(!flag) {
+            state.car.push(goodsinfo)
+           }
+           localStorage.setItem('car',JSON.stringify(state.car))
+     }
+  },
+  getters: {
+    getAllCount(state){
+      var c = 0
+      state.car.forEach(item => {
+        c += item.count
+      })
+      return c
+    }
+   }
+ })
+
 //导入时间插件
 import moment from 'moment'
 
@@ -59,5 +98,6 @@ import app from './App.vue'
 var vm = new Vue({
   el: '#app',
   render: c => c(app),
-  router // 1.4 挂载路由对象到 VM 实例上
+  router, // 1.4 挂载路由对象到 VM 实例上
+  store
 })
