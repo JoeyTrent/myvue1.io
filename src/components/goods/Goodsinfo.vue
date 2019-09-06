@@ -61,16 +61,16 @@ export default {
             id: this.$route.params.id,
             lunbotu: [
                 {
-                    img_url: '/src/images/hmbb5.jpg'
+                    img_url: './src/images/hmbb5.jpg'
                 },
                 {
-                    img_url: '/src/images/hmbb6.jpg'
+                    img_url: './src/images/hmbb6.jpg'
                 },
                 {
-                    img_url: '/src/images/hmbb7.jpg'
+                    img_url: './src/images/hmbb7.jpg'
                 },
                 {
-                    img_url: '/src/images/hmbb8.jpg'
+                    img_url: './src/images/hmbb8.jpg'
                 }
             ],
             goodsinfo: {
@@ -131,7 +131,7 @@ export default {
             this.ballflag = !this.ballflag
             //图片地址需要改
             var goodsinfo = {
-                id: this.id, count: this.selectedCount, price: this.goodsinfo.sell_price ,img_url: '/src/images/hmbb3.jpg', title: this.goodsinfo.title,
+                id: this.id, count: this.selectedCount, price: this.goodsinfo.sell_price ,img_url: './src/images/hmbb3.jpg', title: this.goodsinfo.title,
                 selected: true
                             }
             this.$store.commit('addToCar', goodsinfo)

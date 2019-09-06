@@ -46,49 +46,49 @@ export default {
             list: [
                 {
                     id: 0,
-                    img_url:'/src/images/hmbb.jpg',
+                    img_url:'./src/images/hmbb.jpg',
                     title: 'celia',
                     zhaiyao: 'shona  shona'
                 },
                 {
                     id: 1,
-                    img_url:'/src/images/hmbb2.jpg',
+                    img_url:'./src/images/hmbb2.jpg',
                     title: 'celia',
                     zhaiyao: 'shona  shona'
                 },
                {
                     id: 2,
-                    img_url:'/src/images/hmbb3.jpg',
+                    img_url:'./src/images/hmbb3.jpg',
                     title: 'celia',
                     zhaiyao: 'shona  shona'
                 },
                 {
                     id: 3,
-                    img_url:'/src/images/hmbb4.jpg',
+                    img_url:'./src/images/hmbb4.jpg',
                     title: 'celia',
                     zhaiyao: 'shona  shona'
                 },
                 {
                     id: 4,
-                    img_url:'/src/images/hmbb5.jpg',
+                    img_url:'./src/images/hmbb5.jpg',
                     title: 'celia',
                     zhaiyao: 'shona  shona'
                 },
                 {
                     id: 5,
-                    img_url:'/src/images/hmbb6.jpg'
+                    img_url:'./src/images/hmbb6.jpg'
                 },
                 {
                     id: 6,
-                    img_url:'/src/images/hmbb7.jpg'
+                    img_url:'./src/images/hmbb7.jpg'
                 },
                 {
                     id: 7,
-                    img_url:'/src/images/hmbb8.jpg'
+                    img_url:'./src/images/hmbb8.jpg'
                 },
                 {
                     id: 8,
-                    img_url:'/src/images/hmbb9.jpg'
+                    img_url:'./src/images/hmbb9.jpg'
                 }
             ]
         }

@@ -29,7 +29,88 @@ import { Toast } from "mint-ui";
 export default {
   data() {
     return {
-      newslist: []
+      newslist: [
+         {
+            "id": 1,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 2,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 3,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 4,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 5,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 6,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 7,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 8,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 9,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 7,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          },
+          {
+            "id": 10,
+            "title": "Celia and shona ",
+            "zhaiyao": "maybe it's better to do",
+            "click": 11,
+           "add_time": "2019-09-01T04:05:34.000Z",
+           "img_url":"./src/images/menu1.png"
+          }
+      ]
     };
   },
   created() {
@@ -38,7 +119,7 @@ export default {
   methods: {
     getNewsList() {
       
-      this.$http.get("/src/api/Newslist.json").then(result => {
+      this.$http.get("/src/api/Newslist").then(result => {
         if (result.body.status === 0) {
           // 如果没有失败，应该把数据保存到 data 上
           this.newslist = result.body.message;

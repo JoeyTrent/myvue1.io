@@ -19,7 +19,7 @@
     </div> -->
     <div class="goods-list">
         <div class="goods-item" v-for="item in goodslist" :key="item.id" @click="getDetail(item.id)">
-             <img src="src/images/hmbb3.jpg" alt="">
+             <img :src="item.img_url" alt="">
              <h1 class="title">{{item.title}}</h1>
              <div class="info">
                 <p class="price">
@@ -49,7 +49,7 @@ export default {
                     add_time: '2019-09-03T09:09:09.000Z',
                     zhaoyao: 'Celia',
                     click: 0,
-                    img_url: '/src/images/hmbb3.jpg',
+                    img_url: './src/images/hmbb.jpg',
                     sell_price: 2196,
                     market_price: 2499,
                     stock_quantity: 7
@@ -60,7 +60,7 @@ export default {
                     add_time: '2019-09-03T09:09:09.000Z',
                     zhaoyao: 'Celia',
                     click: 0,
-                    img_url: '/src/images/hmbb3.jpg',
+                    img_url: './src/images/hmbb2.jpg',
                     sell_price: 2196,
                     market_price: 2499,
                     stock_quantity: 8
@@ -71,7 +71,7 @@ export default {
                     add_time: '2019-09-03T09:09:09.000Z',
                     zhaoyao: 'Celia',
                     click: 0,
-                    img_url: '/src/images/hmbb3.jpg',
+                    img_url: './src/images/hmbb3.jpg',
                     sell_price: 2196,
                     market_price: 2499,
                     stock_quantity: 9
@@ -82,7 +82,7 @@ export default {
                     add_time: '2019-09-03T09:09:09.000Z',
                     zhaoyao: 'Celia',
                     click: 0,
-                    img_url: '/src/images/hmbb3.jpg',
+                    img_url: './src/images/hmbb4.jpg',
                     sell_price: 2196,
                     market_price: 2499,
                     stock_quantity: 10
@@ -93,7 +93,7 @@ export default {
                     add_time: '2019-09-03T09:09:09.000Z',
                     zhaoyao: 'Celia',
                     click: 0,
-                    img_url: '/src/images/hmbb3.jpg',
+                    img_url: './src/images/hmbb5.jpg',
                     sell_price: 2196,
                     market_price: 2499,
                     stock_quantity: 10
@@ -104,7 +104,7 @@ export default {
                     add_time: '2019-09-03T09:09:09.000Z',
                     zhaoyao: 'Celia',
                     click: 0,
-                    img_url: '/src/images/hmbb3.jpg',
+                    img_url: './src/images/hmbb6.jpg',
                     sell_price: 2196,
                     market_price: 2499,
                     stock_quantity: 10
@@ -115,7 +115,7 @@ export default {
                     add_time: '2019-09-03T09:09:09.000Z',
                     zhaoyao: 'Celia',
                     click: 0,
-                    img_url: '/src/images/hmbb3.jpg',
+                    img_url: './src/images/hmbb7.jpg',
                     sell_price: 2196,
                     market_price: 2499,
                     stock_quantity: 10

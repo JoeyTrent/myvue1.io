@@ -28,7 +28,13 @@ export default {
   data() {
     return {
       id: this.$route.params.id, // 将 URL 地址中传递过来的 Id值，挂载到 data上，方便以后调用
-      newsinfo: {} // 新闻对象
+      newsinfo: {
+            "id":1,
+            "title": "Celia and shona",
+            "click": 8,
+            "add_time": "2019-09-01T09:09:09.000Z",
+            "content":"<p>嗯嗯</p>"
+        } // 新闻对象
     }; 
   },
   created() {
@@ -38,7 +44,7 @@ export default {
     getNewsInfo() {
       // 获取新闻详情
       // this.$http.get("api/getnew/" + this.id).then(result => {
-      this.$http.get("/src/api/news.json" ).then(result => {
+      this.$http.get("/src/api/news" ).then(result => {
         //console.log(this.newsinfo)
         //console.log(this.id)
         //var that =this

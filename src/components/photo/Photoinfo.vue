@@ -41,27 +41,27 @@ export default {
                },
             list: [
                 {
-                    src: '/src/images/hmbb2.jpg',
+                    src: './src/images/hmbb2.jpg',
                     w: 600,
                     h: 400               
                      },
                 {
-                    src: '/src/images/hmbb3.jpg',
+                    src: './src/images/hmbb3.jpg',
                      w: 600,
                      h: 400  
                 },
                 {
-                    src: '/src/images/hmbb4.jpg',
+                    src: './src/images/hmbb4.jpg',
                      w: 600,
                      h: 400  
                 },
                 {
-                    src: '/src/images/hmbb5.jpg',
+                    src: './src/images/hmbb5.jpg',
                      w: 600,
                      h: 400  
                 },
                 {
-                    src: '/src/images/hmbb6.jpg',
+                    src: './src/images/hmbb6.jpg',
                      w: 600,
                      h: 400  
                 }

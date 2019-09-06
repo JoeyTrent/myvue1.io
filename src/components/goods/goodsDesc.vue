@@ -12,7 +12,7 @@ export default {
         return{
           info:{
               title: 'Celia',
-              content: '<p>celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona</p>  <img src = "/src/images/hmbb6.jpg"><p>celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia</p>'
+              content: '<p>celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona</p>  <img src = "./src/images/hmbb6.jpg"><p>celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia shona celia</p>'
           }  
         }
     },

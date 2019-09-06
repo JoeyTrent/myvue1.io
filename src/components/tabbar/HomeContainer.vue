@@ -71,7 +71,32 @@ import swiper  from '../subcomponents/swiper.vue'
 export default {
   data() {
     return {
-      lunbotuList: [] // 保存轮播图的数组
+      lunbotuList: [
+        {
+            "id": 1,
+            "title":"Celia and shona",
+            "add_time": "2019-09-01T09:09:09.000Z",
+            "zhaiyao": "i and you",
+            "click": 7,
+            "img_url": "./src/images/hmbb.jpg"
+        },
+        {
+            "id": 1,
+            "title":"Celia and shona",
+            "add_time": "2019-09-01T09:09:09.000Z",
+            "zhaiyao": "i and you",
+            "click": 7,
+            "img_url": "./src/images/hmbb2.jpg"
+        },
+        {
+            "id": 1,
+            "title":"Celia and shona",
+            "add_time": "2019-09-01T09:09:09.000Z",
+            "zhaiyao": "i and you",
+            "click": 7,
+            "img_url": "./src/images/hmbb3.jpg"
+        }
+      ] // 保存轮播图的数组
     };
   },
   created() {
@@ -80,7 +105,7 @@ export default {
   methods: {
     getLunbotu() {
       // 获取轮播图数据的方法
-      this.$http.get("/src/api/lunbo.json").then(result => {
+      this.$http.get("/src/api/lunbo").then(result => {
         console.log(result.body);
         if (result.body.status === 0) {
           // 成功了
