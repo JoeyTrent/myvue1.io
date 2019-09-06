@@ -7,8 +7,8 @@ Vue.use(VueRouter)
 
 //导入vuex
 //从localstorerag获取car 
-var car = JSON.parse(localStorage.getItem('car'||'[]'))
-
+var car = JSON.parse(localStorage.getItem('car')||'[]')
+console.log(car)
 import Vuex from 'vuex'
 Vue.use(Vuex)
 var store = new Vuex.Store({
@@ -31,15 +31,73 @@ var store = new Vuex.Store({
             state.car.push(goodsinfo)
            }
            localStorage.setItem('car',JSON.stringify(state.car))
+     },
+     updateGoodsinfo(state,goodsinfo){
+       //更新 数量
+       state.car.some(item => {
+         if(item.id == goodsinfo.id){
+           item.count = parseInt(goodsinfo.count)
+           return true
+         }
+       })
+       //保存到本地
+       localStorage.setItem('car',JSON.stringify(state.car))
+     },
+     removeFromCar(state, id){
+        state.car.some((item,i)=>{
+          if(item.id == id){
+              state.car.splice(i,1)
+             // console.log('ooo')
+              return true
+          }
+        })
+        console.log(state.car)
+        localStorage.setItem('car',JSON.stringify(state.car))
+     },
+     updateGoodsSelected(state, info){
+       state.car.some(item => {
+         if(item.id == info.id){
+           item.selected = info.selected
+         }
+       })
+       localStorage.setItem('car',JSON.stringify(state.car))
      }
   },
   getters: {
     getAllCount(state){
-      var c = 0
-      state.car.forEach(item => {
+      var c = 0 
+     // console.log(state.car)
+      state.car.forEach( item => {
         c += item.count
       })
       return c
+    },
+    getGoodsCount(state){
+      var o = {}
+      state.car.forEach(item => {
+         o[item.id] = item.count
+      })
+      return o
+    },
+    getGoodsSelected(state){
+      var o = {}
+      state.car.forEach(item => {
+        o[item.id] = item.selected
+      })
+      return o
+    },
+    getGoodsCountAndAmount(state){
+      var o = {
+        count: 0,
+        amount: 0
+      }
+      state.car.forEach(item => {
+        if(item.selected){
+          o.count +=item.count
+          o.amount += item.count* item.price
+        }
+      })
+      return o
     }
    }
  })
@@ -101,3 +159,7 @@ var vm = new Vue({
   router, // 1.4 挂载路由对象到 VM 实例上
   store
 })
+
+
+
+

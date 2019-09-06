@@ -74,12 +74,12 @@ export default {
                 }
             ],
             goodsinfo: {
-                id: 1,
+                
                 add_time: '2019-09-04T09:09:09.000Z',
                 goods_note: 's12334445355',
-                market_price: '2699',
-                sell_price: '10999',
-                stock_quantity: 4,
+                market_price: '79',
+                sell_price: '99',
+                stock_quantity: 17,
                 title: 'Celia and Shona',
                },
             ballflag: false,
@@ -129,8 +129,9 @@ export default {
         },
         addToshopCart(){
             this.ballflag = !this.ballflag
+            //图片地址需要改
             var goodsinfo = {
-                id: this.id, count: this.selectedCount, price: this.goodsinfo.sell_price ,
+                id: this.id, count: this.selectedCount, price: this.goodsinfo.sell_price ,img_url: '/src/images/hmbb3.jpg', title: this.goodsinfo.title,
                 selected: true
                             }
             this.$store.commit('addToCar', goodsinfo)
@@ -157,7 +158,8 @@ export default {
         },
         getSelectedcount(count){
             this.selectedCount = count;
-           console.log('父组件收到的数据' +this.selectedCount)
+        //    console.log('父组件收到的数据' +this.selectedCount)
+       
         }
     },
     components: {
