@@ -5,29 +5,52 @@ var path = require('path')
 var htmlWebpackPlugin = require('html-webpack-plugin')
 
 // 当以命令行形式运行 webpack 或 webpack-dev-server 的时候，工具会发现，我们并没有提供 要打包 的文件的 入口 和 出口文件，此时，他会检查项目根目录中的配置文件，并读取这个文件，就拿到了导出的这个 配置对象，然后根据这个对象，进行打包构建
+
+const webpack = require('webpack')
+//分离css文件插件
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+
+
+
+
 module.exports = {
-  entry: path.join(__dirname, './src/main.js'), // 入口文件
+  entry:{ 
+    main:path.join(__dirname, './src/main.js'),
+    venders: ['vue','vue-resource','vue-router','vue-preview','moment']
+   }, // 入口文件
   output: { // 指定输出选项
     path: path.join(__dirname, './dist'), // 输出路径
-    filename: 'bundle.js' // 指定输出文件的名称
+    filename: 'js/[name].[chunkhash:6].js' // 指定输出文件的名称
   },
   plugins: [ // 所有webpack  插件的配置节点
+    //提取公共模块
+    new webpack.optimize.CommonsChunkPlugin({
+        names: ['venders','manifest']
+    }),
     new htmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'), // 指定模板文件路径
       filename: 'index.html' ,// 设置生成的内存页面的名称
       
-    })
+    }),
+    new ExtractTextPlugin("css/style.[contenthash:6].css") // 抽离css
   ],
   module: { // 配置所有第三方loader 模块的
     rules: [ // 第三方模块的匹配规则
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] }, // 处理 CSS 文件的 loader
+     // { test: /\.css$/, use: ['style-loader', 'css-loader'] }, // 处理 CSS 文件的 loader
       { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] }, // 处理 less 文件的 loader
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }, // 处理 scss 文件的 loader
-      { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?name=[hash:8]-[name].[ext]' }, // 处理 图片路径的 loader
+      { test: /\.(jpg|png|gif|bmp|jpeg)$/, use: 'url-loader?limit=2000&name=assets/[hash:6]-[name].[ext]' }, // 处理 图片路径的 loader
       // limit 给定的值，是图片的大小，单位是 byte， 如果我们引用的 图片，大于或等于给定的 limit值，则不会被转为base64格式的字符串， 如果 图片小于给定的 limit 值，则会被转为 base64的字符串
       { test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader' }, // 处理 字体文件的 loader 
       { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }, // 配置 Babel 来转换高级的ES语法
-      { test: /\.vue$/, use: 'vue-loader' } // 处理 .vue 文件的 loader
+      { test: /\.vue$/, use: 'vue-loader' }, // 处理 .vue 文件的 loader
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      }
     ]
   },
   resolve: {
